@@ -1,0 +1,2 @@
+Hello, this is Day 12!
+Writing to file is easy.

@@ -1,0 +1,85 @@
+📘 Day 12 – File I/O
+======================
+
+✅ What I learned today
+
+1. File Class
+   ----------
+
+Represents path of a file/directory
+
+Methods: createNewFile(), delete(), exists(), getAbsolutePath()
+
+2. Reading Files
+   --------------
+
+Scanner: Simple, good for small files
+
+BufferedReader: Efficient for large files (uses buffer)
+
+Example
+-------
+
+// BufferedReader example
+
+try (BufferedReader br = new BufferedReader(new FileReader("file.txt"))) {
+
+    String line;
+
+    while ((line = br.readLine()) != null) {
+
+        System.out.println(line);
+
+    }
+
+}
+
+3. Writing Files
+   -------------
+
+BufferedWriter: Efficient writing
+
+Append mode: new FileWriter("file.txt", true)
+
+4. Serialization
+   --------------
+
+Convert object to byte stream (to save to file or network)
+
+Must implement Serializable interface
+
+transient keyword → skip field during serialization
+
+Example
+-------
+
+class Student implements Serializable {
+
+    int id;
+
+    String name;
+
+    transient String password;  // won't be serialized
+}
+
+5. Practice Task – Count Lines, Words, Characters
+   ----------------------------------------------
+
+Example
+-------
+
+try (BufferedReader br = new BufferedReader(new FileReader("input.txt"))) {
+
+    String line;
+
+    while ((line = br.readLine()) != null) {
+
+        lineCount++;
+
+        charCount += line.length();
+
+        wordCount += line.split("\\s+").length;
+
+    }
+
+}
